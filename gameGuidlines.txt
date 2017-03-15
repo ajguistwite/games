@@ -1,0 +1,20 @@
+Game Guidelines
+
+• Your game must have at least 10 locations or rooms.
+ • These locations must be connected to form a maze.
+ • You start in Location/Room 1. 
+• Each place is connected to from 1 to 4 other places. 
+• The connections are referred to by the direction they face (N, S, E, W). 
+• When you type in a direction (’N’, ’S’, ’E’, or ’W’), you travel through that connection.
+ • When you type in ‘H’, the game will print out a help menu with basic instructions to play.
+• Your game must have at least 4 things that the player needs to collect as part of the game.
+ • The four things are scattered throughout the maze of locations. 
+• All the items must be collected in order. 
+• When you enter a room, you automatically collect the thing that is there (assuming you are allowed to collect it) 
+• After collecting the 4 parts, your game must require that the player travel somewhere special/do something different. 
+• Your game must have a time limit (with something bad happening if the game isn’t won by the end) 
+• Each move from one location to the next takes 1 minute but the time it takes you to make a decision on where to go does not count. 
+• After finding the 4th item, the game must do something special as the user tries to win it. 
+• Every time you enter a location, a message is displayed. The message must include (at a minimum): 1. Where you are 2. Information about any parts in the room 3. Any passages in the room 4. Information about time left (and consequences) 
+• If you enter a direction that does not exist, the message “You cannot go there” is displayed and you remain in your current room (with another prompt) - and no time is deducted. • If you enter a command that is not recognized, the message “What are you saying” is displayed and you remain in your current room (with another prompt) - and no time is deducted.
+ • At the end of the game, a message states whether you succeeded or failed.

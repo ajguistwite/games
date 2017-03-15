@@ -1,0 +1,359 @@
+//Adventure Game
+//Andrew Guistwite
+
+
+def help(): Unit = {
+    println("Press N to move forward, S to move back, W to move left, and E to move right")
+    println("If you come across something secret, type in secret to see what happens")
+    println("To quit, press Ctrl C or Q")
+    println("You will not be able to enter certain rooms unless you have the correct shirts to enter")
+    startGame(0)
+  }
+
+def roomOne(inTime: Int, inItem: Int):Unit = {
+println("You are currently in Room 1.")
+println("There are 3 doors: North, West and East")
+println("Which door would you like to go through?")
+
+var input = readLine(">> ").toUpperCase match {
+case "N" => roomSix(inTime+1)
+case "Q" => System.exit(0)
+case "W" => {
+  if (inItem < 1){
+  roomThree(inTime+1, inItem+1)
+  } else {
+    roomThree(inTime+1)
+case "E" => roomTwo(inTime+1)
+case "S" => {
+  println("You've entered, you cannot exit...")
+  roomOne(inTime+0)
+  }
+  case _ => {
+  println("******ENTER A CORRECT DIRECTION******")
+  roomOne(inTime+0)
+ }
+}
+}
+def roomTwo(inTime: Int, inItem: Int): Unit = {
+  println("You are currently in room two")
+  println("there are two doors, north and south")
+  println("which way would you like to go?")
+  
+  var input = readLine(">> ").toUpperCase match {
+    case "N" => roomEight(inTime+1)
+    case "Q" => System.exit(0)
+    case "W" => roomOne(inTime+1)
+    case "E" => {
+      println("You can't go that way champ")
+      roomTwo(inTime+0)
+    }
+    case "S" => {
+      if (inItem = 2) {
+      roomSeven(inTime+1, inItem+1) } 
+      else if (inItem > 2){
+      roomSeven(inTime+1)
+      }
+      else{
+        ("Comeback with item2")
+        roomTwo(inTime+0)            
+    }
+     case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomOne(inTime+0)   
+ }
+  }
+}
+
+def roomThree(inTime: Int, inItem: Int):Unit = {
+  if (inItem = 1){
+  println("")
+  println("******You have picked up item1!********")
+  println("")
+} 
+  println("Which door would you like to go through?")
+  println("You are currently in Room 3.")
+  println("There are 2 doors inside: North and West")
+  var input = readLine(">> ").toUpperCase match {
+    case "N" => roomFour(inTime+1)
+    case "Q" => System.exit(0)
+    case "W" => trap()
+    case "E" => roomOne(inTime+1)
+    case "S" => {
+      println("Can't go that way champ")
+      roomThree(inTime+0)
+  }
+    case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomThree(inTime+0)   
+ }  
+ }
+ 
+}
+
+def roomFour(inTime: Int, inItem: Int): Unit = {
+  println("You are in room four")
+  println("You can go East, west, or you see a secret passage?") 
+  
+  var input = readLine(">> ").toUpperCase match {
+case "N" => {
+  println("You can't go that way brotha")
+  roomFour(inTime+0)
+}
+case "W" => { 
+  if (inItem = 1) {
+  roomFive(inTime+1) }
+  else { 
+    println("You do not have the first piece yet to come into this room. Comeback when you have your first item")
+    roomFour(inTime+0)
+}
+}
+case "E" => roomSix(inTime+1)
+case "S" => { 
+  if (inItem > 1) {
+    roomThree(inTime+1)    
+} else {
+    roomThree(inTime+1, inItem+1)
+}
+}
+case "Q" => System.exit(0)
+case "SECRET" => roomEleven(inTime+1)
+case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomFour(inTime+0)   
+ }
+ }
+}
+
+def roomFive(inTime: Int, inItem: Int): Unit = {
+  if(inItem = 2){
+    println(" ")
+    println("********You Picked up Item 2**********")
+    println(" ")
+  }
+    println("You are currently in room 5")
+    println("You can only back the way you came")
+    var input = readLine(">> ").toUpperCase match {
+     case "N" => {
+       println("You're staring at a wall")
+       roomFive(inTime+0)
+     }
+     case "W" => {
+       println("You're staring at a wall")
+       roomFive(inTime+1)
+     }
+     case "Q" => System.exit(0)
+     case "E" => roomFour(inTime+1)
+     case "S" => {
+       println("You're staring at a wall")
+       roomFive(inTime+0)
+     }
+      case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomFive(inTime+0)   
+ }
+ }
+}
+   
+def roomSix(inTime: Int, inItem: Int):Unit = {
+println("You are currently in Room 6.")
+println("There are 3 doors: East, West and North")
+println("Which door would you like to go through?") 
+
+var input = readLine(">> ").toUpperCase match {
+case "N" => roomEleven(inTime+1)
+case "W" => roomFour(inTime+1)
+case "Q" => System.exit(0)
+case "E" => roomEight(inTime+1)
+case "S" => roomOne(inTime+1)
+case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomSix(inTime+0)   
+ }
+ }
+}
+
+def roomSeven(inTime: Int, inItem: Int):Unit = {
+  if(inItems = 3
+  println("You are currently in room 7")
+  println("You can either go South or back from whence you came")
+  
+var input = readLine(">> ").toUpperCase match {
+  case "N" => roomTwo(inTime+1)
+  case "Q" => System.exit(0)
+  case "W" => {
+    println("You're staring at a wall")
+    roomSeven(inTime+0)
+}
+case "E" => {
+   println("You're staring at a wall")
+  roomSeven(inTime+0)
+}
+case "S" => trap()
+ case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomSeven(inTime+0)   
+ }
+ 
+}
+}
+
+def roomEight(inTime: Int, inItem: Int): Unit = {
+  println("You are in room eight rn")
+  println("You can go N, S, or W")
+ 
+  var input = readLine(">> ").toUpperCase match {
+    case "N" => roomNine(inTime+1)
+    case "Q" => System.exit(0)
+    case "W" => roomSix(inTime+1)
+    case "E" => {
+      println("You're staring at a wall")
+      roomEight(inTime+0)
+    }
+    case "S" => roomTwo(inTime+1)
+     case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomEight(inTime+0)   
+ }
+ }
+}
+
+def roomNine(inTime: Int, inItem: Int): Unit = {
+  println("You are in room nine rn")
+  println("you can go w, e, or s")
+  
+   var input = readLine(">> ").toUpperCase match {
+case "N" => {
+  println("You can't go that way brotha")
+  roomNine(inTime+0)
+}
+case "W" => roomEleven(inTime+1)
+case "Q" => System.exit(0)
+case "E" => {
+  if (inItems = 3) { 
+  roomTen(inTime+1, inItem +1) } 
+  if else(inItems != 3) {
+    println("You need item 2 to enter you fuck!")
+    roomNine(inTime+0)
+  }
+}
+case "S" => roomEight(inTime+1)
+ case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomEleven(inTime+0)   
+ }
+ }
+ 
+}
+
+def roomTen(inTime: Int, inItem: Int): Unit = {
+  if(inItem = 4) { 
+    println(" ")
+    println("**********YOU COLLECTED ITEM 4!***************")
+    println(" ")
+  }
+  println("You are in room 10 rn")
+  println("You can only back the way you came")
+  var input = readLine(">> ").toUpperCase match {
+     case "N" => {
+       println("You're staring at a wall")
+       roomTen(inTime+0)
+     }
+     case "W" => roomNine(inTime+1)
+     case "Q" => System.exit(0)
+     case "E" => {
+       println("You're staring at a wall")
+       roomTen(inTime+0)
+     }
+     case "S" => {
+       println("You're staring at a wall")
+       roomTen(inTime+0)
+  }
+     case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomTen(inTime+0)   
+ }
+  }
+}
+
+def roomEleven(inTime: Int, inItem: Int): Unit = {
+  println("You are in room 11 rn.")
+  println("You can go n,s,e,w")
+ 
+  var input = readLine(">> ").toUpperCase match {
+    case "N" => {
+      if( items(3) == 4) {
+      finalRoom(inTime+0)} else {
+        println("come back with all parts to enter")
+        roomEleven(inTime+0)
+    }
+    }
+    case "W" => roomFour(inTime+1)
+    case "E" => roomNine(inTime+1)
+    case "Q" => System.exit(0)
+    case "S" => roomSix(inTime+1)
+    case "H" => help()
+     case _ => {
+      println("******ENTER A CORRECT DIRECTION******")
+      roomEleven(inTime+0)   
+ }
+ 
+}
+}
+
+def finalRoom(inTime: Int, inItem: Int): Unit = {
+  println("You are in the final room")
+  println("good Luck")
+  println("What gets wetter as it drys?")
+  
+  var input = readLine(">> ") match {
+    case "towel" => {
+      println("YOU WIN")
+      println("You took" + inTime + "minutes to complete")
+    }
+    case _ => {
+      println("You suck")
+      finalRoom(inTime+0)
+    }
+    case "Q" => System.exit(0)  
+ 
+}
+}
+
+
+def trap(): Unit = {
+  println("You've died")
+}
+
+def startGame(inTime: Int, inItem: Int):Unit = {
+println("**************************************************")
+println("**************************************************")
+println("")
+println("Start Your game?")
+println("")
+var time = inTime
+var items = inItem
+var input = readLine(">> ").toUpperCase match {
+case "YES" => roomOne(inTime+1)
+case "NO" => {
+   println("When you are ready to begin please type \"yes\".")
+  startGame(0)
+}
+case "H" => help()
+case "Q" => System.exit(0)
+case _ => {
+  println("When you are ready to begin please type \"yes\".")
+  startGame(0)
+}
+}
+}
+startGame(0)
+
+
+
+
+  
+  
+
+
+
+  
